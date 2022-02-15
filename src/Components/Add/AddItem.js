@@ -17,7 +17,7 @@ export default function AddItem({ onAddItem }) {
         value={newItem}
         onChange={(e) => setNewItem(e.target.value)}
       />
-      <button className="addbutton" type="submit">
+      <button className="addbutton" type="submit" onSubmit={setNewItem}>
         Add Item
       </button>
     </form>

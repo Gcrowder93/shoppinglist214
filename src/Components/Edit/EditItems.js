@@ -1,8 +1,9 @@
 // edit and delete buttons here for items
-
+import ItemList from '../List/ItemList';
 import React, { useState } from 'react';
+// import ItemDetail from '../Detail/ItemDetail';
 
-export default function EditItem({ onEditItem, onDeleteItem }) {
+export default function EditItem({ item, onEditItem, onDeleteItem }) {
   const [newEditItem, setEditItem] = useState('');
   const [newDeleteItem, setDeleteItem] = useState('');
 
@@ -21,25 +22,16 @@ export default function EditItem({ onEditItem, onDeleteItem }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <input
-        className="edititem"
-        placeholder="edit item"
-        value={newEditItem}
-        onChange={(e) => setEditItem(e.target.value)}
-      /> */}
       <div onClick={handleClick}>
-        <button
-          className="editbutton"
-          type="edit"
-          value={newEditItem}
-          //   onClick={() => setEditItem(false)}
-        >
+        <h2>{ItemList.id}</h2>
+        {/* <h3>{ItemDetail.id}</h3> */}
+        <button type="edit" onSubmit={() => onEditItem(item.id)}>
           Edit
         </button>
+        <button type="delete" onSubmit={() => onDeleteItem(item.id)}>
+          Delete
+        </button>
       </div>
-      <button className="deletebutton" type="delete" value={newDeleteItem}>
-        Delete
-      </button>
     </form>
   );
 }

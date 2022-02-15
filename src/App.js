@@ -7,6 +7,7 @@ function App() {
       <header className="App-header">app header</header>
       <h1>Shopping List</h1>
       <Home />
+      <footer className="App-footer">app footer</footer>
     </div>
   );
 }

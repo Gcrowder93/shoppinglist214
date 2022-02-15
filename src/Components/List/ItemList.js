@@ -1,23 +1,18 @@
-// import and call <EditItem /> here for buttons next to what is mapped?
-//map through items here
+import React from 'react';
+import ItemDetail from '../Detail/ItemDetail';
 
-import React /*useState*/ from 'react';
-import EditItem from '../Edit/EditItems';
-
-export default function ItemList() {
-  // const { itemEntry } = useState('');
-
+export default function ItemList({ newItem, onEditItem, onDeleteItem }) {
   return (
     <div>
-      {/* {itemEntry.map(({ id, newItem }) => (
-        <div key={id}>
-          <li>{newItem}</li>
-        </div>
-      ))} */}
+      {/* <ul>
+        {newItem.map((item) => (
+          <li key={item.id}>
+            <ItemDetail item={item} onEditItem={onEditItem} onDeleteItem={onDeleteItem} />
+          </li>
+        ))}
+      </ul> */}
       These are your items that you can edit or delete
-      {/* <div> */}
-      <EditItem />
-      {/* </div> */}
+      {/* <EditItem /> */}
     </div>
   );
 }

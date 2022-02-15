@@ -16,3 +16,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.App-footer {
+  background-color: #282c34;
+  display: flex;
+  margin-top: 666px;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
