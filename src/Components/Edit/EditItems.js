@@ -14,6 +14,11 @@ export default function EditItem({ onEditItem, onDeleteItem }) {
     onDeleteItem(newDeleteItem);
   };
 
+  const handleClick = async (e) => {
+    e.preventDefault();
+    setEditItem('');
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       {/* <input
@@ -22,10 +27,17 @@ export default function EditItem({ onEditItem, onDeleteItem }) {
         value={newEditItem}
         onChange={(e) => setEditItem(e.target.value)}
       /> */}
-      <button className="editbutton" type="submit" value={newEditItem}>
-        Edit
-      </button>
-      <button className="deletebutton" type="submit" value={newDeleteItem}>
+      <div onClick={handleClick}>
+        <button
+          className="editbutton"
+          type="edit"
+          value={newEditItem}
+          //   onClick={() => setEditItem(false)}
+        >
+          Edit
+        </button>
+      </div>
+      <button className="deletebutton" type="delete" value={newDeleteItem}>
         Delete
       </button>
     </form>
