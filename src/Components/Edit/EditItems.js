@@ -16,6 +16,12 @@ export default function EditItem({ onEditItem, onDeleteItem }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* <input
+        className="edititem"
+        placeholder="edit item"
+        value={newEditItem}
+        onChange={(e) => setEditItem(e.target.value)}
+      /> */}
       <button className="editbutton" type="submit" value={newEditItem}>
         Edit
       </button>
