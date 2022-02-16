@@ -1,15 +1,42 @@
+import { useReducer } from 'react';
 import AddItem from '../Components/Add/AddItem';
 import ItemList from '../Components/List/ItemList';
-import EditItem from '../Components/Edit/EditItems';
 
-const Home = () => {
+const initialItems = [{ id: 0, text: 'hello' }];
+
+function itemsReducer(items, action) {
+  switch (action.type) {
+    case 'added': {
+      return [
+        ...items,
+        {
+          id: items.length + 1,
+          text: action.text,
+        },
+      ];
+    }
+    default: {
+      throw Error(`Unknown action: ${action.type}`);
+    }
+  }
+}
+
+export default function Home() {
+  const [items, dispatch] = useReducer(itemsReducer, initialItems);
+
+  const add = (text) => {
+    dispatch({
+      type: 'added',
+      id: items.length + 1,
+      text,
+    });
+  };
+
   return (
-    <div className="homediv">
-      <AddItem />
-      <ItemList />
-      <EditItem />
-    </div>
+    <>
+      <h1>Shopping List</h1>
+      <AddItem addItem={add} newItems={items} />
+      <ItemList newItems={items} />
+    </>
   );
-};
-
-export default Home;
+}

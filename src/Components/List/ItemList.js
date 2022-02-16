@@ -1,18 +1,28 @@
 import React from 'react';
-import ItemDetail from '../Detail/ItemDetail';
+// import ItemDetail from '../Detail/ItemDetail';
+import EditItem from '../Edit/EditItems';
 
-export default function ItemList({ newItem, onEditItem, onDeleteItem }) {
+export default function ItemList({ newItems, onEditItem, onDeleteItem }) {
   return (
     <div>
-      {/* <ul>
-        {newItem.map((item) => (
-          <li key={item.id}>
-            <ItemDetail item={item} onEditItem={onEditItem} onDeleteItem={onDeleteItem} />
-          </li>
-        ))}
-      </ul> */}
-      These are your items that you can edit or delete
-      {/* <EditItem /> */}
+      <ul>
+        These are your items that you can edit or delete
+        {newItems.map((item) => {
+          return (
+            <li key={item.id}>
+              <hr
+                style={{
+                  width: 75,
+                }}
+              ></hr>
+
+              {item.text}
+              <br></br>
+              <EditItem item={item} onEditItem={onEditItem} onDeleteItem={onDeleteItem} />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

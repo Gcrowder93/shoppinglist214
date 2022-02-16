@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-export default function AddItem({ onAddItem }) {
+export default function AddItem({ addItem }) {
   const [newItem, setNewItem] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setNewItem('');
-    onAddItem(newItem);
+    addItem(newItem);
   };
 
   return (
@@ -17,9 +17,7 @@ export default function AddItem({ onAddItem }) {
         value={newItem}
         onChange={(e) => setNewItem(e.target.value)}
       />
-      <button className="addbutton" type="submit" onSubmit={setNewItem}>
-        Add Item
-      </button>
+      <button type="submit">Add Item</button>
     </form>
   );
 }
