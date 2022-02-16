@@ -15,6 +15,14 @@ function itemsReducer(items, action) {
         },
       ];
     }
+    case 'edit': {
+      return items.map((item) => {
+        if (item.id === action.task.id) {
+          return action.task;
+        }
+        return item;
+      });
+    }
     case 'deleted': {
       return items.filter((item) => item.id !== action.id);
     }
@@ -35,6 +43,13 @@ export default function Home() {
     });
   };
 
+  const edit = (task) => {
+    dispatch({
+      type: 'edit',
+      task,
+    });
+  };
+
   const handleDelete = (taskId) => {
     dispatch({
       type: 'deleted',
@@ -46,7 +61,7 @@ export default function Home() {
     <>
       <h1>Shopping List</h1>
       <AddItem addItem={add} newItems={items} />
-      <ItemList newItems={items} onDeleteItem={handleDelete} />
+      <ItemList newItems={items} onEditItem={edit} onDeleteItem={handleDelete} />
     </>
   );
 }

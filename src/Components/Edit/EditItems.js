@@ -1,29 +1,33 @@
 import React, { useState } from 'react';
 
-export default function EditItem({ item, onEditItem, onDeleteItem }) {
-  console.log(item);
-  const [newEditItem, setEditItem] = useState('');
-  const [newDeleteItem, setDeleteItem] = useState('');
+export default function EditItem({ item, onDeleteItem, onChange }) {
+  const [newEditItem, setEditItem] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setEditItem('');
-    setDeleteItem('');
-    onEditItem(newEditItem);
-    onDeleteItem(newDeleteItem);
-  };
-
-  const handleClick = async (e) => {
-    e.preventDefault();
-    setEditItem('');
-  };
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   setEditItem('');
+  // };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div onClick={handleClick}>
-        <button type="edit" onSubmit={() => onEditItem(item.id)}>
-          Edit
-        </button>
+    <form>
+      <div>
+        {newEditItem && (
+          <>
+            <input
+              value={item.text}
+              onChange={(e) => {
+                onChange({ ...item, text: e.target.value });
+              }}
+            />
+            <button onClick={() => setEditItem(false)}>Save</button>
+          </>
+        )}
+        {!newEditItem && (
+          <>
+            {/* {item.text} */}
+            <button onClick={() => setEditItem(true)}>Edit</button>
+          </>
+        )}
         <button type="delete" onClick={() => onDeleteItem(item.id)}>
           Delete
         </button>

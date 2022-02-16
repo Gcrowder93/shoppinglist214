@@ -18,7 +18,7 @@ export default function ItemList({ newItems, onEditItem, onDeleteItem }) {
 
               {item.text}
               <br></br>
-              <EditItem item={item} onEditItem={onEditItem} onDeleteItem={onDeleteItem} />
+              <EditItem item={item} onChange={onEditItem} onDeleteItem={onDeleteItem} />
             </li>
           );
         })}
