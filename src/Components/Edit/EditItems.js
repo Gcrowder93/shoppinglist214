@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function EditItem({ item, onEditItem, onDeleteItem }) {
+  console.log(item);
   const [newEditItem, setEditItem] = useState('');
   const [newDeleteItem, setDeleteItem] = useState('');
 
@@ -23,7 +24,7 @@ export default function EditItem({ item, onEditItem, onDeleteItem }) {
         <button type="edit" onSubmit={() => onEditItem(item.id)}>
           Edit
         </button>
-        <button type="delete" onSubmit={() => onDeleteItem(onDeleteItem)}>
+        <button type="delete" onClick={() => onDeleteItem(item.id)}>
           Delete
         </button>
       </div>

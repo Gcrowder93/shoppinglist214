@@ -15,6 +15,9 @@ function itemsReducer(items, action) {
         },
       ];
     }
+    case 'deleted': {
+      return items.filter((item) => item.id !== action.id);
+    }
     default: {
       throw Error(`Unknown action: ${action.type}`);
     }
@@ -27,8 +30,15 @@ export default function Home() {
   const add = (text) => {
     dispatch({
       type: 'added',
-      id: items.length + 1,
+      id: items.length + 0,
       text,
+    });
+  };
+
+  const handleDelete = (taskId) => {
+    dispatch({
+      type: 'deleted',
+      id: taskId,
     });
   };
 
@@ -36,7 +46,7 @@ export default function Home() {
     <>
       <h1>Shopping List</h1>
       <AddItem addItem={add} newItems={items} />
-      <ItemList newItems={items} />
+      <ItemList newItems={items} onDeleteItem={handleDelete} />
     </>
   );
 }

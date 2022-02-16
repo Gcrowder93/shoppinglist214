@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">app header</header>
-      <h1>Shopping List</h1>
+      {/* <h1>Shopping List</h1> */}
       <Home />
       {/* <AddItem />
       dont need add item, just want to see it on page atm
