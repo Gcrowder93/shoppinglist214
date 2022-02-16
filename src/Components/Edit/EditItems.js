@@ -23,7 +23,7 @@ export default function EditItem({ item, onEditItem, onDeleteItem }) {
         <button type="edit" onSubmit={() => onEditItem(item.id)}>
           Edit
         </button>
-        <button type="delete" onClick={() => onDeleteItem(onDeleteItem)}>
+        <button type="delete" onSubmit={() => onDeleteItem(onDeleteItem)}>
           Delete
         </button>
       </div>
