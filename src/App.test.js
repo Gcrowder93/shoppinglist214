@@ -22,4 +22,10 @@ test('tests the behavior', () => {
   expect(editButton).toBeInTheDocument();
 
   userEvent.click(editButton);
+
+  const editInput = screen.getByRole('textbox', { name: /edit-input/i });
+  expect(editInput).toBeInTheDocument();
+  expect(screen.getByDisplayValue(/cucumber/i)).toBeInTheDocument();
+  const saveButton = screen.getByRole('button', { name: /save/i });
+  expect(saveButton).toBeInTheDocument();
 });
