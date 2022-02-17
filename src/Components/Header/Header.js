@@ -1,7 +1,13 @@
+import { useList } from '../../ Context/ListContext';
+
 export default function Header() {
+  const { items } = useList();
+
   return (
     <header className="header">
-      <div>add counter to this header</div>
+      <div>
+        <span>{items.length}</span>
+      </div>
     </header>
   );
 }
