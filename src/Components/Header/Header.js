@@ -1,5 +1,3 @@
-import { useList } from '../../ Context/ListContext';
-
 export default function Header() {
   return (
     <header className="header">

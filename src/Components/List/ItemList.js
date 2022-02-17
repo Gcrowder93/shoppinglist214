@@ -1,5 +1,4 @@
 import React from 'react';
-// import ItemDetail from '../Detail/ItemDetail';
 import EditItem from '../Edit/EditItems';
 
 export default function ItemList({ newItems, onEditItem, onDeleteItem }) {

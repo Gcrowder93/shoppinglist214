@@ -61,10 +61,6 @@ export const ListProvider = ({ children }) => {
     <ListContext.Provider value={{ items, add, edit, handleDelete }}>
       {children}
     </ListContext.Provider>
-
-    // <ListContext.Provider value={{ items: [{ id: 0, text: 'hello', done: false }] }}>
-    //   {children}
-    // </ListContext.Provider>
   );
 };
 

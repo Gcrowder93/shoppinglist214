@@ -3,11 +3,6 @@ import React, { useState } from 'react';
 export default function EditItem({ item, onDeleteItem, onChange }) {
   const [newEditItem, setEditItem] = useState(false);
 
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   setEditItem('');
-  // };
-
   return (
     <form>
       <div>
