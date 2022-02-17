@@ -15,6 +15,7 @@ export default function AddItem({ addItem }) {
         className="additem"
         placeholder="add item"
         value={newItem}
+        required
         onChange={(e) => setNewItem(e.target.value)}
       />
       <button type="submit">Add Item</button>
