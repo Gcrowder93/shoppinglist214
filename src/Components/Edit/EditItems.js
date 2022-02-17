@@ -13,6 +13,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
               onChange={(e) => {
                 onChange({ ...item, text: e.target.value });
               }}
+              aria-label="edit-input"
             />
             <button onClick={() => setEditItem(false)}>Save</button>
           </>
@@ -20,10 +21,12 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
         {!newEditItem && (
           <>
             {/* {item.text} */}
-            <button onClick={() => setEditItem(true)}>Edit</button>
+            <button aria-label={`Edit ${item.text}`} onClick={() => setEditItem(true)}>
+              Edit
+            </button>
           </>
         )}
-        <button type="delete" onClick={() => onDeleteItem(item.id)}>
+        <button onClick={() => onDeleteItem(item.id)} aria-label={`Delete ${item.text}`}>
           Delete
         </button>
       </div>
