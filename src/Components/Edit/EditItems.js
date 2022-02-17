@@ -14,16 +14,37 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
                 onChange({ ...item, text: e.target.value });
               }}
             />
-            <button onClick={() => setEditItem(false)}>Save</button>
+
+            <button
+              style={{
+                borderRadius: '5px',
+              }}
+              onClick={() => setEditItem(false)}
+            >
+              Save
+            </button>
           </>
         )}
         {!newEditItem && (
           <>
             {/* {item.text} */}
-            <button onClick={() => setEditItem(true)}>Edit</button>
+            <button
+              style={{
+                borderRadius: '5px',
+              }}
+              onClick={() => setEditItem(true)}
+            >
+              Edit
+            </button>
           </>
         )}
-        <button type="delete" onClick={() => onDeleteItem(item.id)}>
+        <button
+          type="delete"
+          style={{
+            borderRadius: '5px',
+          }}
+          onClick={() => onDeleteItem(item.id)}
+        >
           Delete
         </button>
       </div>

@@ -13,12 +13,26 @@ export default function AddItem({ addItem }) {
     <form onSubmit={handleSubmit} className="form">
       <input
         className="additem"
-        placeholder="add item"
+        style={{
+          width: '200px',
+          borderRadius: '5px',
+          textAlign: 'center',
+          fontStyle: 'italic',
+        }}
+        placeholder="add new item"
         value={newItem}
         required
         onChange={(e) => setNewItem(e.target.value)}
       />
-      <button type="submit">Add Item</button>
+      <br></br>
+      <button
+        style={{
+          borderRadius: '5px',
+        }}
+        type="submit"
+      >
+        Add Item
+      </button>
     </form>
   );
 }

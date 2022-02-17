@@ -4,11 +4,17 @@ import EditItem from '../Edit/EditItems';
 export default function ItemList({ newItems, onEditItem, onDeleteItem }) {
   return (
     <div>
-      <ul>
-        These are your items that you can edit or delete
+      <ol type="checkbox">
+        You can <b>edit</b> <i>or</i> <b>delete</b> your items
         {newItems.map((item) => {
           return (
-            <li key={item.id}>
+            <li
+              style={{
+                listStyleType: 'upper-roman',
+                margin: '0 40%',
+              }}
+              key={item.id}
+            >
               <hr
                 style={{
                   width: 75,
@@ -21,7 +27,7 @@ export default function ItemList({ newItems, onEditItem, onDeleteItem }) {
             </li>
           );
         })}
-      </ul>
+      </ol>
     </div>
   );
 }
