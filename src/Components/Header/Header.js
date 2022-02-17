@@ -1,12 +1,25 @@
 import { useList } from '../../ Context/ListContext';
 
 export default function Header() {
-  const { items } = useList();
+  const { items, clear } = useList();
 
   return (
     <header className="header">
       <div>
-        <span>{items.length}</span>
+        <button
+          style={{
+            marginLeft: '55%',
+            borderRadius: '5px',
+            backgroundColor: 'hsl(40, 60%, 70%)',
+            padding: '3px',
+          }}
+          onClick={() => {
+            clear({ type: 'clear' });
+          }}
+        >
+          Clear Shopping List
+        </button>
+        <span>{items.length} item(s) on list</span>
       </div>
     </header>
   );

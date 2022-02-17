@@ -4,7 +4,7 @@ import { useReducer } from 'react';
 const ListContext = createContext();
 
 export const ListProvider = ({ children }) => {
-  const initialItems = [{ id: 0, text: 'hello' }];
+  const initialItems = [];
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
 
   function itemsReducer(items, action) {
@@ -32,6 +32,11 @@ export const ListProvider = ({ children }) => {
       default: {
         throw Error(`Unknown action: ${action.type}`);
       }
+
+      case 'clear': {
+        return initialItems;
+        // return items.filter((item) => item.id !== action.id);
+      }
     }
   }
 
@@ -57,8 +62,15 @@ export const ListProvider = ({ children }) => {
     });
   };
 
+  const clear = (taskId) => {
+    dispatch({
+      type: 'clear',
+      id: taskId,
+    });
+  };
+
   return (
-    <ListContext.Provider value={{ items, add, edit, handleDelete }}>
+    <ListContext.Provider value={{ items, add, edit, handleDelete, clear }}>
       {children}
     </ListContext.Provider>
   );
