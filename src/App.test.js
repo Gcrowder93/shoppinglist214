@@ -8,10 +8,8 @@ test('tests the behavior', () => {
   const addButton = screen.getByRole('button', { name: /add/i });
   expect(addButton).toBeInTheDocument();
 
-  // const deleteButton = screen.getByRole('button', { name: /delete hello/i });
-  // expect(deleteButton).toBeInTheDocument();
-
   const input = screen.getByRole('textbox', { placeholder: /add item/i });
+
   expect(input).toBeInTheDocument();
 
   userEvent.type(input, 'cucumber');
@@ -31,4 +29,7 @@ test('tests the behavior', () => {
   expect(screen.getByDisplayValue(/cucumber/i)).toBeInTheDocument();
   const saveButton = screen.getByRole('button', { name: /save/i });
   expect(saveButton).toBeInTheDocument();
+
+  const clearButton = screen.getByRole('button', { name: /clear shopping list/i });
+  expect(clearButton).toBeInTheDocument();
 });

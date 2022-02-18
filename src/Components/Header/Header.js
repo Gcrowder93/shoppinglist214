@@ -16,6 +16,7 @@ export default function Header() {
           onClick={() => {
             clear({ type: 'clear' });
           }}
+          aria-label={`Clear ${items.text}`}
         >
           Clear Shopping List
         </button>
