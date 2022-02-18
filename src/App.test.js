@@ -15,8 +15,11 @@ test('tests the behavior', () => {
   userEvent.type(input, 'cucumber');
   userEvent.click(addButton);
 
-  const Listitem = screen.getByText(/cucumber/i);
-  expect(Listitem).toBeInTheDocument();
+  // const Listitem = screen.getByText(/cucumber/i);
+  // expect(Listitem).toBeInTheDocument();
+
+  const ListItem = screen.getAllByRole('listitem');
+  expect(ListItem).toHaveLength(1);
 
   const editButton = screen.getByLabelText(/edit/i);
   expect(editButton).toBeInTheDocument();
