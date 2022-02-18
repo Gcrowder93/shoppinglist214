@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import './EditItem.css';
 
 export default function EditItem({ item, onDeleteItem, onChange }) {
   const [newEditItem, setEditItem] = useState(false);
 
   return (
     <form>
-      <div>
+      <div className="editing">
         {newEditItem && (
           <>
             <input
@@ -17,6 +18,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
             />
 
             <button
+              className="savebutton"
               style={{
                 borderRadius: '5px',
               }}
@@ -30,6 +32,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
           <>
             {/* {item.text} */}
             <button
+              className="editbutton"
               style={{
                 borderRadius: '5px',
               }}
@@ -41,6 +44,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
           </>
         )}
         <button
+          className="deletebutton"
           type="delete"
           style={{
             borderRadius: '5px',

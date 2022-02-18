@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddItem.css';
 
 export default function AddItem({ addItem }) {
   const [newItem, setNewItem] = useState('');
@@ -26,6 +27,7 @@ export default function AddItem({ addItem }) {
       />
       <br></br>
       <button
+        className="addbutton"
         style={{
           borderRadius: '5px',
         }}
