@@ -1,0 +1,15 @@
+.deletebutton:hover {
+  background-color: red;
+}
+
+.editbutton:hover {
+  background-color: royalblue;
+}
+
+.savebutton:hover {
+  background-color: lime;
+}
+
+.editing {
+  margin-left: -40px;
+}
