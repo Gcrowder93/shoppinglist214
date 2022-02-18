@@ -20,8 +20,13 @@ export default function ItemList({ newItems, onEditItem, onDeleteItem }) {
                   width: 75,
                 }}
               ></hr>
-
-              {item.text}
+              <div
+                style={{
+                  width: '200px',
+                }}
+              >
+                {item.text}
+              </div>
               <br></br>
               <EditItem item={item} onChange={onEditItem} onDeleteItem={onDeleteItem} />
             </li>
