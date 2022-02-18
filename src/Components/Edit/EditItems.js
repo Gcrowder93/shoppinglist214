@@ -13,6 +13,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
               onChange={(e) => {
                 onChange({ ...item, text: e.target.value });
               }}
+              aria-label="edit-input"
             />
 
             <button
@@ -33,6 +34,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
                 borderRadius: '5px',
               }}
               onClick={() => setEditItem(true)}
+              aria-label={`Edit ${item.text}`}
             >
               Edit
             </button>
@@ -44,6 +46,7 @@ export default function EditItem({ item, onDeleteItem, onChange }) {
             borderRadius: '5px',
           }}
           onClick={() => onDeleteItem(item.id)}
+          aria-label={`Delete ${item.text}`}
         >
           Delete
         </button>
